@@ -189,12 +189,15 @@ function update_cert {
     [[ "${DEBUG}" == 1 ]] && params_base_arr+=(--debug 2)
 
     # Alternative trusted root CA path, used for test with Pebble
-    if [[ -n "${CA_BUNDLE// }" ]]; then
-        if [[ -f "${CA_BUNDLE}" ]]; then
-            params_base_arr+=(--ca-bundle "${CA_BUNDLE}")
-            [[ "${DEBUG}" == 1 ]] && echo "Debug: acme.sh will use ${CA_BUNDLE} as trusted root CA."
+    local -n per_container_ca_bundle="ACME_${cid}_CA_BUNDLE"
+    # keep backward compatibility with CA_BUNDLE
+    local acme_ca_bundle="${per_container_ca_bundle:-${ACME_CA_BUNDLE:-${CA_BUNDLE:-}}}"
+    if [[ -n "${acme_ca_bundle// }" ]]; then
+        if [[ -f "${acme_ca_bundle}" ]]; then
+            params_base_arr+=(--ca-bundle "${acme_ca_bundle}")
+            [[ "${DEBUG}" == 1 ]] && echo "Debug: acme.sh will use ${acme_ca_bundle} as trusted root CA."
         else
-            echo "Warning: the path to the alternate CA bundle (${CA_BUNDLE}) is not valid, using default Alpine trust store."
+            echo "Warning: the path to the alternate CA bundle (${acme_ca_bundle}) is not valid, using default Alpine trust store."
         fi
     fi
 

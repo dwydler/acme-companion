@@ -122,6 +122,11 @@ If you want to do this globally for all containers, set `ACME_CA_URI` on the **a
 
 The `ACME_CA_URI` environment variable is used to set the ACME API endpoint from which the container's certificate(s) will be requested (defaults to ``https://acme-v02.api.letsencrypt.org/directory``).
 
+#### Alternate trusted root CA
+
+The `ACME_CA_BUNDLE` environment variable is used to set the path to an alternate trusted root CA bundle file that must be mounted or copied inside the **acme-companion** container (defaults to the Alpine trust store). This can be useful if you are running your own ACME CA.
+
+
 #### Preferred chain
 
 If the ACME CA provides multiple cert chain, you can use the `ACME_PREFERRED_CHAIN` environment variable to select one. See [`acme.sh --preferred-chain` documentation](https://github.com/acmesh-official/acme.sh/wiki/Preferred-Chain) for more info.

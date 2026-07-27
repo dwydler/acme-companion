@@ -5,6 +5,7 @@
 | Variable | Default | Legacy Variable | Documentation |
 |---|---|---|---|
 | `ACME_CA_URI` | `https://acme-v02.api.letsencrypt.org/directory` | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) |
+| `ACME_CA_BUNDLE` | Alpine trust store | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) |
 | `ACME_CHALLENGE` | `HTTP-01` | — | [Let's Encrypt and ACME › DNS-01 challenge](./Let's-Encrypt-and-ACME.md#dns-01-acme-challenge) |
 | `ACMESH_DNS_API_CONFIG` | — | — | [Let's Encrypt and ACME › DNS-01 challenge](./Let's-Encrypt-and-ACME.md#dns-01-acme-challenge) |
 | `ACME_CERT_PROFILE` | CA default | — | [Let's Encrypt and ACME › Default certificate profile](./Let's-Encrypt-and-ACME.md#default-certificate-profile) |
@@ -14,7 +15,6 @@
 | `ACME_POST_HOOK` | — | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) · [Hooks](./Hooks.md) |
 | `ACME_PRE_HOOK` | — | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) · [Hooks](./Hooks.md) |
 | `ACME_RENEW_AFTER` | `60` (days) | `DEFAULT_RENEW` ⚠️ deprecated | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) |
-| `CA_BUNDLE` | Alpine trust store | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) |
 | `CERTS_UPDATE_INTERVAL` | `3600` (seconds) | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) |
 | `CREATE_DEFAULT_CERTIFICATE` | `false` | — | [Let's Encrypt and ACME › Self signed default certificate](./Let's-Encrypt-and-ACME.md#self-signed-default-certificate) |
 | `DEBUG` | `0` | — | [Container configuration](./Container-configuration.md#optional-container-environment-variables-for-custom-configuration) |
@@ -46,6 +46,7 @@
 | `ACME_HOST` | — | `LETSENCRYPT_HOST` | [Basic usage](./Basic-usage.md) · [Let's Encrypt and ACME](./Let's-Encrypt-and-ACME.md) |
 | `ACME_EMAIL` | `DEFAULT_EMAIL` or none | `LETSENCRYPT_EMAIL` | [Let's Encrypt and ACME › Contact address](./Let's-Encrypt-and-ACME.md#contact-address) |
 | `ACME_CA_URI` | acme-companion's `ACME_CA_URI` | — | [Let's Encrypt and ACME › ACME CA URI](./Let's-Encrypt-and-ACME.md#acme-ca-uri) |
+| `ACME_CA_BUNDLE` | acme-companion's `ACME_CA_BUNDLE` | — | [Let's Encrypt and ACME › Alternate trusted root CA](./Let's-Encrypt-and-ACME.md#alternate-trusted-root-ca) |
 | `ACME_CHALLENGE` | acme-companion's `ACME_CHALLENGE` | — | [Let's Encrypt and ACME › DNS-01 challenge](./Let's-Encrypt-and-ACME.md#dns-01-acme-challenge) |
 | `ACMESH_DNS_API_CONFIG` | acme-companion's `ACMESH_DNS_API_CONFIG` | — | [Let's Encrypt and ACME › DNS-01 challenge](./Let's-Encrypt-and-ACME.md#dns-01-acme-challenge) |
 | `ACME_CERT_PROFILE` | acme-companion's `ACME_CERT_PROFILE` or CA default | — | [Let's Encrypt and ACME › Certificate profile](./Let's-Encrypt-and-ACME.md#certificate-profile) |
