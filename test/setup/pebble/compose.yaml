@@ -6,6 +6,7 @@ services:
       - "./${PEBBLE_CONFIG}:/test/config/pebble-config.json"
     environment:
       - PEBBLE_VA_NOSLEEP=1
+      - PEBBLE_WFE_NONCEREJECT=0
     command: -config /test/config/pebble-config.json -dnsserver 10.30.50.3:8053
     ports:
       - 14000:14000 # HTTPS ACME API
