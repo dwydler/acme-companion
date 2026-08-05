@@ -48,7 +48,7 @@ function run_le_container {
     cli_args_arr+=(--network boulder_bluenet)
   elif [[ "${ACME_CA}" == 'pebble' ]]; then
     cli_args_arr+=(--env "ACME_CA_URI=https://pebble:14000/dir")
-    cli_args_arr+=(--env "CA_BUNDLE=/pebble.minica.pem")
+    cli_args_arr+=(--env "ACME_CA_BUNDLE=/pebble.minica.pem")
     cli_args_arr+=(--network acme_net)
     cli_args_arr+=(--volume "${GITHUB_WORKSPACE}/pebble.minica.pem:/pebble.minica.pem")
   else
